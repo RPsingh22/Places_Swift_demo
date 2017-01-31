@@ -65,16 +65,16 @@ class SearchViewController: UIViewController,UITextFieldDelegate,UITableViewDele
         
         let tableCell : UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "TableCellIdentifier")!
         
-        let place = self.searchResultArray[indexPath.row] as! NSDictionary
+        let place = self.searchResultArray[indexPath.row] as! JsonResponsePlaceModel
         
-        tableCell.textLabel?.text = place.value(forKey: "description") as! String?
+        tableCell.textLabel?.text = place.placeDescription
         
         return tableCell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let place = self.searchResultArray[indexPath.row] as! NSDictionary
-        let placeId = place.value(forKey: "place_id") as! String?
+        let place = self.searchResultArray[indexPath.row] as! JsonResponsePlaceModel
+        let placeId = place.placeId
         selectedPlaceID = placeId!
         self.performSegue(withIdentifier: "SearchToDetailSegue", sender: self)
     }
@@ -91,7 +91,16 @@ class SearchViewController: UIViewController,UITextFieldDelegate,UITableViewDele
             let resultDict : [String : Any] = response as! [String : Any]
             let results  = resultDict["predictions"] as! NSArray
             self.searchResultArray.removeAllObjects()
-            self.searchResultArray = results.mutableCopy() as! NSMutableArray
+            for index in 0..<results.count {
+                let modelPlace = JsonResponsePlaceModel()
+                if((results[index] as! NSDictionary)["description"] is String) {
+                    modelPlace.placeDescription = (results[index] as! NSDictionary)["description"] as? String
+                }
+                if((results[index] as! NSDictionary)["place_id"] is String) {
+                    modelPlace.placeId = (results[index] as! NSDictionary)["place_id"] as? String
+                }
+                self.searchResultArray.add(modelPlace)
+            }
             self.mResultTableView.isHidden = false
             self.mResultTableView.reloadData()
         }) { (errorDesc, state) in
