@@ -33,6 +33,7 @@
 		DFDA13231E3F7A490070C7AA /* HomeScreenUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDA13221E3F7A490070C7AA /* HomeScreenUITest.swift */; };
 		DFDA13251E3F89CA0070C7AA /* PlaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDA13241E3F89CA0070C7AA /* PlaceDetailViewController.swift */; };
 		DFDA13271E3F98220070C7AA /* MockNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDA13261E3F98220070C7AA /* MockNavigationController.swift */; };
+		F422D0121E407B44009C7250 /* JsonResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F422D0111E407B44009C7250 /* JsonResponseModel.swift */; };
 		F4A0ABC51E3F6283006C1FBB /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4A0ABC41E3F6283006C1FBB /* Alamofire.framework */; };
 		F4A0ABC71E3F639A006C1FBB /* ReachabilitySwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4A0ABC61E3F639A006C1FBB /* ReachabilitySwift.framework */; };
 /* End PBXBuildFile section */
@@ -89,6 +90,7 @@
 		DFDA13221E3F7A490070C7AA /* HomeScreenUITest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreenUITest.swift; sourceTree = "<group>"; };
 		DFDA13241E3F89CA0070C7AA /* PlaceDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewController.swift; sourceTree = "<group>"; };
 		DFDA13261E3F98220070C7AA /* MockNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockNavigationController.swift; sourceTree = "<group>"; };
+		F422D0111E407B44009C7250 /* JsonResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonResponseModel.swift; sourceTree = "<group>"; };
 		F4A0ABC41E3F6283006C1FBB /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../../Users/gaurav/Library/Developer/Xcode/DerivedData/GMPlaces_Swift_demo-dguxuvdahyeczlchzphosuutmkrl/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
 		F4A0ABC61E3F639A006C1FBB /* ReachabilitySwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReachabilitySwift.framework; path = "../../../../Users/gaurav/Library/Developer/Xcode/DerivedData/GMPlaces_Swift_demo-dguxuvdahyeczlchzphosuutmkrl/Build/Products/Debug-iphonesimulator/ReachabilitySwift/ReachabilitySwift.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -167,6 +169,7 @@
 		2679D6D31E3F32280087A812 /* GMPlaces_Swift_demo */ = {
 			isa = PBXGroup;
 			children = (
+				F422D0101E407B07009C7250 /* ModelClasses */,
 				DFDA13261E3F98220070C7AA /* MockNavigationController.swift */,
 				2679D70D1E3F3DD90087A812 /* Controller */,
 				2679D70A1E3F3ADF0087A812 /* HelperClasses */,
@@ -237,6 +240,14 @@
 				DFDA131C1E3F7A1B0070C7AA /* Info.plist */,
 			);
 			path = GMPlaces_Swift_demoTests;
+			sourceTree = "<group>";
+		};
+		F422D0101E407B07009C7250 /* ModelClasses */ = {
+			isa = PBXGroup;
+			children = (
+				F422D0111E407B44009C7250 /* JsonResponseModel.swift */,
+			);
+			name = ModelClasses;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -428,6 +439,7 @@
 				2679D71A1E3F67570087A812 /* WebserviceHandler.swift in Sources */,
 				DFDA13251E3F89CA0070C7AA /* PlaceDetailViewController.swift in Sources */,
 				2679D6D51E3F32280087A812 /* AppDelegate.swift in Sources */,
+				F422D0121E407B44009C7250 /* JsonResponseModel.swift in Sources */,
 				2679D7111E3F3E670087A812 /* SearchViewController.swift in Sources */,
 				2679D70C1E3F3AF60087A812 /* Constants.swift in Sources */,
 				DFDA13271E3F98220070C7AA /* MockNavigationController.swift in Sources */,
@@ -591,7 +603,7 @@
 				);
 				INFOPLIST_FILE = GMPlaces_Swift_demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.seasia.GMPlaces-Swift-demo";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cerebrum.GMPlaces-Swift-demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -609,7 +621,7 @@
 				);
 				INFOPLIST_FILE = GMPlaces_Swift_demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.seasia.GMPlaces-Swift-demo";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cerebrum.GMPlaces-Swift-demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -693,6 +705,7 @@
 				DFDA13121E3F7A070070C7AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DFDA131F1E3F7A1B0070C7AA /* Build configuration list for PBXNativeTarget "GMPlaces_Swift_demoTests" */ = {
 			isa = XCConfigurationList;
@@ -701,6 +714,7 @@
 				DFDA13211E3F7A1B0070C7AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
