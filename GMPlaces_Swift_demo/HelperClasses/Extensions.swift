@@ -2,8 +2,8 @@
 //  Extensions.swift
 //  GMPlaces_Swift_demo
 //
-//  Created by Seasia on 30/01/17.
-//  Copyright © 2017 Seasia. All rights reserved.
+//  Created by Cerebrum on 30/01/17.
+//  Copyright © 2017 Cerebrum. All rights reserved.
 //
 //@Class: This is a extenstion of string
 
