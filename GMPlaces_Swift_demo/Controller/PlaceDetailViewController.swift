@@ -12,8 +12,6 @@ class PlaceDetailViewController: UIViewController, UITableViewDelegate,UITableVi
     
     @IBOutlet var mDetailTableView: UITableView! // Show results for Google Place Detail API
     var placeId : String = ""
-    var placeDetail : NSDictionary = NSDictionary() // Get result from Google Place Detail API
-    var keyArray = ["name","url","icon"] // Contains which parameters to show
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Place Detail"
@@ -23,25 +21,20 @@ class PlaceDetailViewController: UIViewController, UITableViewDelegate,UITableVi
     //MARK:- Table View Delegates
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return keyArray.count
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let tableCell : UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cellId")!
-        let fieldString = keyArray[indexPath.row]
-        let valueString : String? = placeDetail.value(forKey: keyArray[indexPath.row] ) as! String?
-        
-        if valueString != nil {
-            tableCell.textLabel?.text = fieldString + " : " + valueString!
-            
+        switch indexPath.row {
+        case 0:
+            tableCell.textLabel?.text = "name" + " : " + PlaceDetailObject.placeName!
+        case 1:
+            tableCell.textLabel?.text = "url" + " : " + PlaceDetailObject.placeUrl!
+        case 2:
+            tableCell.textLabel?.text = "icon" + " : " + PlaceDetailObject.placeIcon!
+        default: break
         }
-        else
-        {
-            tableCell.textLabel?.text = fieldString + " : N/A"
-        }
-        
-        
-        
         return tableCell
     }
     
@@ -53,13 +46,13 @@ class PlaceDetailViewController: UIViewController, UITableViewDelegate,UITableVi
             print(response)
             let resultDict : [String : Any] = response as! [String : Any]
             let results  = resultDict["result"] as! NSDictionary
-            self.placeDetail = results
-            
+            PlaceDetailObject.placeName = results.value(forKey: "name" ) as? String
+            PlaceDetailObject.placeUrl  = results.value(forKey: "url" ) as? String
+            PlaceDetailObject.placeIcon = results.value(forKey: "icon" ) as? String
             self.mDetailTableView.reloadData()
         }) { (errorDesc, state) in
             
         }
-        
     }
     
     override func didReceiveMemoryWarning() {
