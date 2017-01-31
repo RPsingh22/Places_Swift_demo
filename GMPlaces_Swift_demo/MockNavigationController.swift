@@ -2,8 +2,8 @@
 //  MockNavigationController.swift
 //  GMPlaces_Swift_demo
 //
-//  Created by Tina Gupta on 30/01/17.
-//  Copyright © 2017 Tina gupta. All rights reserved.
+//  Created by Cerebrum on 30/01/17.
+//  Copyright © 2017 Cerebrum. All rights reserved.
 //
 //@Class: This class is use for mocking the transisitions of UINavigationController.
 
